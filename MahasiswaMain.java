@@ -58,9 +58,9 @@ public class MahasiswaMain {
 
     // Method untuk inisialisasi data
     static void inisialisasiData() {
-        daftarMahasiswa[0] = new Mahasiswa("22001", "Ali Rahman", "Informatika");
-        daftarMahasiswa[1] = new Mahasiswa("22002", "Budi Santoso", "Sistem Informasi");
-        daftarMahasiswa[2] = new Mahasiswa("22003", "Citra Dewi", "Teknik Komputer");
+        daftarMahasiswa[0] = new Mahasiswa("22001", "Ali Rahman", "TI");
+        daftarMahasiswa[1] = new Mahasiswa("22002", "Budi Santoso", "SIB");
+        daftarMahasiswa[2] = new Mahasiswa("22003", "Citra Dewi", "TI");
 
         daftarMataKuliah[0] = new MataKuliah("MK001", "Struktur Data", 3);
         daftarMataKuliah[1] = new MataKuliah("MK002", "Basis Data", 3);
