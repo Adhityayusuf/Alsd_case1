@@ -1,4 +1,5 @@
 public class Mahasiswa {
+
     String NIM;
     String nama;
     String prodi;
@@ -14,5 +15,4 @@ public class Mahasiswa {
         System.out.println("Nama: " + nama);
         System.out.println("Prodi: " + prodi);
     }
-    
 }
