@@ -1,20 +1,18 @@
 public class Mahasiswa {
     String NIM;
-    String Nama;
-    String Prodi;
+    String nama;
+    String prodi;
 
-    Mahasiswa(String nim,String nm,String prodi) {
-        NIM = nim;
-        Nama = nm;
-        Prodi = prodi;
-
+    public Mahasiswa(String NIM, String nama, String prodi) {
+        this.NIM = NIM;
+        this.nama = nama;
+        this.prodi = prodi;
     }
 
-    void tampilMahasiswa() {
-        System.out.println("Nim\t : "+ NIM);
-        System.out.println(("Nama\t : "+ Nama));
-        System.out.println("Prodi\t : "+Prodi);
-        System.out.println("---------------------");
+    public void tampilMahasiswa() {
+        System.out.println("NIM: " + NIM);
+        System.out.println("Nama: " + nama);
+        System.out.println("Prodi: " + prodi);
     }
     
 }
