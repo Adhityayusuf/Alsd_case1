@@ -7,9 +7,14 @@ public class MahasiswaMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("===== KELOMPOK 01 ALSD =====");
+        System.out.println("NAMA : M.ADHITYA YUSUF AL-AYYUBI");
+        System.out.println("NAMA : FAATIHURRIZKI PRASOJO");
+        System.out.println("NAMA : DIMAS HANDARHESKY");
+        System.out.println("=================================");
+        System.out.println();
         // Inisialisasi data
         inisialisasiData();
-
         int pilihan;
         do {
             tampilkanMenu();
