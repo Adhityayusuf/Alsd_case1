@@ -7,16 +7,8 @@ public class MahasiswaMain {
     static Penilaian[] daftarPenilaian = new Penilaian[5];
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("===== KELOMPOK 01 ALSD =====");
-        System.out.println("NAMA : M.ADHITYA YUSUF AL-AYYUBI");
-        System.out.println("NAMA : FAATIHURRIZKI PRASOJO");
-        System.out.println("NAMA : DIMAS HANDARHESKY");
-        System.out.println("=================================");
-        System.out.println();
-
-        // Inisialisasi data
         inisialisasiData();
 
         int pilihan;
@@ -24,8 +16,8 @@ public class MahasiswaMain {
         do {
             tampilkanMenu();
             System.out.print("Masukkan pilihan: ");
-            pilihan = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            pilihan = sc.nextInt();
+            sc.nextLine();
 
             switch (pilihan) {
                 case 1:
@@ -35,15 +27,15 @@ public class MahasiswaMain {
                     tampilkanDataMataKuliah();
                     break;
                 case 3:
-                    Penilaian.tampilkanDataPenilaian(daftarPenilaian);
+                    tampilkanDataPenilaian(daftarPenilaian);
                     break;
                 case 4:
-                    Penilaian.urutkanDataPenilaianBubbleSort(daftarPenilaian); // Menggunakan Bubble Sort
+                    urutkanDataPenilaianBubbleSort(daftarPenilaian);
                     break;
                 case 5:
                     System.out.print("Masukkan NIM mahasiswa yang dicari: ");
-                    String nimCari = scanner.nextLine();
-                    Penilaian.cariDataPenilaianLinearSearch(daftarPenilaian, nimCari);
+                    String nimCari = sc.nextLine();
+                    cariDataPenilaianLinearSearch(daftarPenilaian, nimCari);
                     break;
                 case 0:
                     System.out.println("Keluar dari program.");
@@ -53,7 +45,7 @@ public class MahasiswaMain {
             }
         } while (pilihan != 0);
 
-        scanner.close();
+        sc.close();
     }
 
     // Method untuk inisialisasi data
@@ -103,6 +95,54 @@ public class MahasiswaMain {
                 daftarMataKuliah[i].tampilMatakuliah();
                 System.out.println("-------------");
             }
+        }
+    }
+
+    static void tampilkanDataPenilaian(Penilaian[] daftarPenilaian) {
+        System.out.println("\n=== DATA PENILAIAN MAHASISWA ===");
+        for (int i = 0; i < daftarPenilaian.length; i++) {
+            if (daftarPenilaian[i] != null) {
+                daftarPenilaian[i].tampilPenilaian();
+                System.out.println("-------------");
+            }
+        }
+    }
+
+    static void urutkanDataPenilaianBubbleSort(Penilaian[] daftarPenilaian) {
+        int n = daftarPenilaian.length;
+        Penilaian temp;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (daftarPenilaian[j] != null && daftarPenilaian[j + 1] != null) {
+                    if (daftarPenilaian[j].getNilaiAkhir() < daftarPenilaian[j + 1].getNilaiAkhir()) {
+                        temp = daftarPenilaian[j];
+                        daftarPenilaian[j] = daftarPenilaian[j + 1];
+                        daftarPenilaian[j + 1] = temp;
+                    }
+                }
+            }
+        }
+        System.out.println("\nData Penilaian Setelah Diurutkan Berdasarkan Nilai Akhir (Bubble Sort):");
+        for (int i = 0; i < daftarPenilaian.length; i++) {
+            if (daftarPenilaian[i] != null) {
+                daftarPenilaian[i].tampilPenilaian();
+                System.out.println("-------------");
+            }
+        }
+    }
+
+    static void cariDataPenilaianLinearSearch(Penilaian[] daftarPenilaian, String nimCari) {
+        System.out.println("\nHasil Pencarian (Linear Search):");
+        boolean found = false;
+        for (int i = 0; i < daftarPenilaian.length; i++) {
+            if (daftarPenilaian[i] != null && daftarPenilaian[i].getNIMMahasiswa().equals(nimCari)) {
+                daftarPenilaian[i].tampilPenilaian();
+                System.out.println("-------------");
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Data penilaian untuk NIM " + nimCari + " tidak ditemukan.");
         }
     }
 }
