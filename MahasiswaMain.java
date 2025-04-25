@@ -37,6 +37,9 @@ public class MahasiswaMain {
                     String nimCari = sc.nextLine();
                     cariDataPenilaianLinearSearch(daftarPenilaian, nimCari);
                     break;
+                case 6:
+                    nilai(daftarPenilaian, daftarMahasiswa);
+                    break;
                 case 0:
                     System.out.println("Keluar dari program.");
                     break;
@@ -73,6 +76,7 @@ public class MahasiswaMain {
         System.out.println("3. Tampilkan Data Penilaian");
         System.out.println("4. Urutkan Mahasiswa Berdasarkan Nilai Akhir");
         System.out.println("5. Cari Data Penilaian Mahasiswa Berdasarkan NIM");
+        System.out.println("6. jawaban uts");
         System.out.println("0. Keluar");
     }
 
@@ -145,4 +149,39 @@ public class MahasiswaMain {
             System.out.println("Data penilaian untuk NIM " + nimCari + " tidak ditemukan.");
         }
     }
+
+    static void nilai(Penilaian[] daftarPenilaian,Mahasiswa[] daftarMahasiswa) {
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        for (int j = 0; j < daftarMahasiswa.length; j++) {
+            int jum1 = 0;
+            int jum2 = 0;
+            int jum3 = 0;
+            for (int i = 0; i < daftarPenilaian.length; i++) {
+                if (daftarPenilaian[i].getNIMMahasiswa().equals(daftarMahasiswa[j].NIM)){
+                    if(daftarPenilaian[i].getNilaiAkhir() >= 80){
+                        if(jum1 < 1) {
+                            a++;
+                            jum1++;
+                        }
+                    } else if (daftarPenilaian[i].getNilaiAkhir() < 80 && daftarPenilaian[i].getNilaiAkhir() >= 70) {
+                        if(jum2 < 1) {
+                            b++;
+                            jum2++;
+                        }
+                    } else {
+                        if(jum3 < 1) {
+                            c++;
+                            jum3++;
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("Mahasiswa dengan nilai akhir >= 80          : " + a + " mahasiswa");
+        System.out.println("Mahasiswa dengan nilai akhir >= 70 dan < 80 : " + b + " mahasiswa");
+        System.out.println("Mahasiswa dengan nilai akhir < 70           : " + c + " mahasiswa");
+    }
+
 }
